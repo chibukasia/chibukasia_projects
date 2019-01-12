@@ -1,0 +1,9 @@
+# depslib dependency file v1.0
+1547190458 source:h:\c\prac\main.c
+	<stdio.h>
+	<conio.h>
+	<ctype.h>
+	<stdlib.h>
+	<string.h>
+	<time.h>
+
