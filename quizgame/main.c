@@ -18,6 +18,7 @@ int main()
     printf("\t\t\t|________________|\n");
     printf("\n\t\t > Press 1 for the Trivia game");
     printf("\n\t\t > Press 2 for the Concentration game");
+    printf("\n\t\t > Press 3 for the guess  game");
     printf("\n\t\t > Press Q to exit the game");
     printf("\n\t\t > Press any other key to go back to home\n");
     choice=toupper(getch());/*fetches the user input*/
@@ -584,6 +585,22 @@ int main()
         }
     }
     else if (choice=='2'){
+      printf("\n\t\t#######################\n");
+    printf("\t\t#     WELCOME          #\n");
+    printf("\t\t#       TO             #\n");
+    printf("\t\t#   CONCENTRATION      #\n");
+    printf("\t\t#      GAME            #\n");
+    printf("\t\t#       BE             #\n");
+    printf("\t\t#      OUR             #\n");
+    printf("\t\t#      LUCKY           #\n");
+    printf("\t\t#     GUESSER          #\n");
+    printf("\t\t#######################\n");
+     printf("\n\n\t\tThis game allow you to input hidden number\n");
+     printf("\t\tThe number ranges from 0 to 100\n");
+     printf("\t\t If you input the right number or numbers, you get it right\n");
+     printf("\t\t If you guess it wrong , you will be allowed to play till the fifth time\n");
+     printf("\t\t The numbers are random\n");
+
             int c, n;
             int numb[5];
             /*Initialise random*/
@@ -593,23 +610,72 @@ int main()
     for (c = 1; c <= 5; c++) {
 /*generate random number ranging from 0 to 100*/
             n = rand() % 100 + 1;
-    printf("%d\n", n);
+    printf("Enter your number: \n");
     /*prompt the user to input the numbers*/
     scanf("%d",numb);
     /*check if there is a match*/
-    if (*numb=n){
+    if (*numb==n){
         printf("you have the correct values\n");
 
     }
+
     else
     {
         printf("wrong order input\n");
     }
-
-
-
-
   }
+     printf("Sorry,You're out of guesses!!");
+    }
+    else if (choice == '3'){
+         FILE * fpointer=fopen("Terms and conditions.html", "a");
+        fprintf(fpointer,"\t\tTERMS AND CONDITIONS\n THIS GAME IS ONLY VIABLE TO PEOPLE ABOVE 18 YEARS\n IF YOU'RE FOUND PLAYING THE GAME AND YOU'RE BELOW 18\nYOU WILL BE SUBJECTED  TO A JAIL TERM OF 3YEARS OR A FINE OF $50000");
+        fclose(fpointer);
+
+    printf("\n\t\t#######################\n");
+    printf("\t\t#     WELCOME          #\n");
+    printf("\t\t#       TO             #\n");
+    printf("\t\t#      LOTTO           #\n");
+    printf("\t\t#      GAME            #\n");
+    printf("\t\t#       BE             #\n");
+    printf("\t\t#      OUR             #\n");
+    printf("\t\t#      LUCKY           #\n");
+    printf("\t\t#     WINNER           #\n");
+    printf("\t\t#######################\n");
+    printf("You're required to enter your three lucky numbers\n");
+    printf("If the order of the three lucky numbers matches our secret number\n");
+    printf("you win\n");
+    printf("If the match doesn't go through, you loose\n");
+    printf("If the your number matches with our secret number,\n");
+    printf("You win $100,000\n");
+    printf("You've only three guesses\n");
+    printf("\t\t##       GOOD LUCK!!!        ##\n");
+
+    int secretNumber=347;
+    int guess;
+    int guessCount=0;
+    int guessLimit=3;
+    int guessOver=0;
+
+    while(guess!=secretNumber && guessOver==0)
+    {
+        if (guessCount<guessLimit){
+        printf("Enter your guess number: ");
+        scanf("%d",&guess);
+        guessCount++;
+        }
+
+        else {
+            guessOver=1;
+        }
+    }
+        if (guessOver==1){
+            printf("Your guess limit is up!!");
+        }
+        else{
+            printf("you're a lucky winner of $100,000!!\n");
+            printf("\t\t***CONGRAGULATIONS***");
+        }
+
 
     }
     else if (choice=='Q'){
