@@ -585,6 +585,7 @@ int main()
         }
     }
     else if (choice=='2'){
+            system("cls");
       printf("\n\t\t#######################\n");
     printf("\t\t#     WELCOME          #\n");
     printf("\t\t#       TO             #\n");
@@ -595,42 +596,65 @@ int main()
     printf("\t\t#      LUCKY           #\n");
     printf("\t\t#     GUESSER          #\n");
     printf("\t\t#######################\n");
-     printf("\n\n\t\tThis game allow you to input hidden number\n");
-     printf("\t\tThe number ranges from 0 to 100\n");
-     printf("\t\t If you input the right number or numbers, you get it right\n");
-     printf("\t\t If you guess it wrong , you will be allowed to play till the fifth time\n");
-     printf("\t\t The numbers are random\n");
+    printf("\n\n\t\tThis game allow you to input hidden number\n");
+    printf("\t\tThe number ranges from 0 to 100\n");
+    printf("\t\t If you input the right number or numbers, you get it right\n");
+    printf("\t\t If you guess it wrong , you will be allowed to play till the fifth time\n");
+    printf("\t\t The numbers are random\n");
 
-            int c, n;
-            int numb[5];
-            /*Initialise random*/
-            srand(time(NULL));
-    printf("Five random numbers in [1,100]\n");
+        int iNum1;
+        int iNum2;
+        int iNum3;
+        int iNum4;
+        int iNum5;
+        int iCurrentTime;
+        int iElapsedTime;
+        int iAns1;
+        int iAns2;
+        int iAns3;
+        int iAns4;
+        int iAns5;
+        srand(time(NULL));
+        iNum1 = rand() % 100 + 1;
+        iNum2 = rand() % 100 + 1;
+        iNum3 = rand() % 100 + 1;
+        iNum4 = rand() % 100 + 1;
+        iNum5 = rand() % 100 + 1;
 
-    for (c = 1; c <= 5; c++) {
-/*generate random number ranging from 0 to 100*/
-            n = rand() % 100 + 1;
-    printf("Enter your number: \n");
-    /*prompt the user to input the numbers*/
-    scanf("%d",numb);
-    /*check if there is a match*/
-    if (*numb==n){
-        printf("you have the correct values\n");
+        printf("\nConcentrate on these 3 numbers and memorise them:\n");
+        printf("%d %d %d %d %d", iNum1, iNum2, iNum3,iNum4,iNum5);
 
-    }
+        iCurrentTime = time(NULL);
 
-    else
-    {
-        printf("wrong order input\n");
-    }
-  }
-     printf("Sorry,You're out of guesses!!");
+
+        do {
+            iElapsedTime = time(NULL);
+        } while ((iElapsedTime - iCurrentTime) < 5);
+
+
+        int x;
+        for (x = 0; x < 1; x++) {
+                system("cls");
+
+        }
+
+        printf("\nEnter the numbers, with a space between each one: \n");
+        scanf("%d %d %d %d %d", &iAns1, &iAns2, &iAns3,&iAns4,&iAns5);
+
+        if (iNum1 == iAns1 && iNum2 == iAns2 && iNum3 == iAns3 && iNum4==iAns4 &&iNum5==iAns5) {
+            printf("\n WOW!!! You have the right inputs\n");
+                    }
+        else {
+            printf("\nSorry, the correct numbers were %d %d %d %d %d", iNum1, iNum2, iNum3,iNum4,iNum5);
+            }
+
+
     }
     else if (choice == '3'){
          FILE * fpointer=fopen("Terms and conditions.html", "a");
         fprintf(fpointer,"\t\tTERMS AND CONDITIONS\n THIS GAME IS ONLY VIABLE TO PEOPLE ABOVE 18 YEARS\n IF YOU'RE FOUND PLAYING THE GAME AND YOU'RE BELOW 18\nYOU WILL BE SUBJECTED  TO A JAIL TERM OF 3YEARS OR A FINE OF $50000");
         fclose(fpointer);
-
+        system("cls");
     printf("\n\t\t#######################\n");
     printf("\t\t#     WELCOME          #\n");
     printf("\t\t#       TO             #\n");
